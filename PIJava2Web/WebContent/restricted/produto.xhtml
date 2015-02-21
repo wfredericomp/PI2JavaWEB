@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<link rel="stylesheet" type="text/css" href="css/estilo.css"></link>
+</head>
+<h:body>
+	<ui:composition template="_template.xhtml">
+
+		<ui:define name="titulo">
+			<p>Novo produto de lixo eletrônico</p>
+		</ui:define>
+		<ui:define name="conteudo">
+			<h:form>
+				<br />
+				<fieldset>
+					<legend>Dados do Produto</legend>
+
+					<h:messages id="mensagens" class="mensagem" />
+
+					<h:panelGrid columns="2">
+
+						<h:outputLabel value="Código:" for="codigo" />
+						<h:outputLabel id="codigo" value="#{produtoBean.codigo}" />
+
+						<h:outputLabel value="Nome:" for="nome" />
+						<h:inputText id="nome" value="#{produtoBean.nome}" />
+
+						<h:outputLabel value="Descrição:" for="descricao" />
+						<h:inputText id="descricao" value="#{produtoBean.descricao}" />
+
+						<h:outputLabel value="Peso: (KG)" for="peso" />
+						<h:inputText id="peso" value="#{produtoBean.peso}" />
+
+						<h:outputLabel value="Selecione uma categoria:" for="categoria" />
+						<h:selectOneMenu value="#{produtoBean.categoria}" id="categoria">
+							<f:selectItems value="#{produtoBean.categorias}" var="categorias"
+								itemLabel="#{categorias}" itemValue="#{categorias}" />
+						</h:selectOneMenu>
+
+					</h:panelGrid>
+				</fieldset>
+				<br />
+				<h:commandButton value="Gravar" class="botao"
+					actionListener="#{produtoBean.cadastrarProduto}" />
+				<br />
+			</h:form>
+
+			<fieldset>
+				<legend>Lista de Produtos cadastrados (lixos eletrônicos)</legend>
+
+				<h:form>
+					<h:dataTable value="#{produtoBean.produtos}" var="produto"
+						styleClass="tabela" headerClass="cabecalhos"
+						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Código" />
+							</f:facet>
+							<h:outputText value="#{produto.codigo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nome" />
+							</f:facet>
+							<h:outputText value="#{produto.nome}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Descrição" />
+							</f:facet>
+							<h:outputText value="#{produto.descricao}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Peso" />
+							</f:facet>
+							<h:outputText value="KG #{produto.peso}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Categoria" />
+							</f:facet>
+							<h:outputText value="#{produto.categoria}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Atualizar" />
+							</f:facet>
+							<h:commandButton value="atualizar" class="botaoLista"
+								actionListener="#{produtoBean.atulizarProduto(produto)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Remover" />
+							</f:facet>
+							<h:commandButton value="remover" class="botaoLista"
+								actionListener="#{produtoBean.removerProduto(produto)}" />
+						</h:column>
+
+					</h:dataTable>
+				</h:form>
+
+			</fieldset>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<link rel="stylesheet" type="text/css" href="../css/estilo.css"></link>
+<title>Sistema de coletas de lixo Eletrônicos</title>
+</head>
+<h:body>
+
+	<div class="cabecalho2">
+
+		<!-- Menu -->
+		<div class="menu">
+			<ul class="menu-list">
+				<li><a href="/PIJava2Web/restricted/index.xhtml">INÍCIO</a></li>
+				<li><a href="#">POSTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/posto.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web//restricted/listaPostos.xhtml">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">PRODUTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/produto.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web/restricted/listaProdutos.xhtml">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">AGENDAMENTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/agenda.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web/restricted/listaAgenda.xhtml">LISTAR</a></li>
+					</ul></li>
+			</ul>
+		</div>
+
+		<h:graphicImage library="img" name="logo.png" />
+		<h:form>
+			<h:commandButton value="Sair" actionListener="#{loginBean.sair}"
+				class="botaoSair" />
+		</h:form>
+		<h2>
+			<ui:insert name="titulo"></ui:insert>
+		</h2>
+	</div>
+
+	<div id="conteudo">
+		<ui:insert name="conteudo">
+		</ui:insert>
+	</div>
+
+	<div id="rodape">
+		<address>©Todos os direitos reservados - Trabalho PI turma
+			GADS-20142T.N - Intituto InfNet</address>
+	</div>
+
+</h:body>
+
+</html>

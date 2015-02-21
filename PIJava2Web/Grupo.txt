@@ -1,0 +1,13 @@
+Participantes do grupo	
+Waldivino Frederico Marques
+Rafael Elias
+Pablo Albert
+Hugo Portela
+Fabricio Tarden
+
+
+Informações do sistema
+Login: admin
+senha: 123456
+
+Servidor Apache tomcat

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css"></link>
+	<title>Sistema de coletas de lixo Eletrônicos!</title>
+</h:head>
+<h:body>
+	<div class="cabecalho">
+		<!-- Menu -->
+		<div class="menu">
+			<ul class="menu-list">
+				<li><a href="/PIJava2Web/restricted/index.xhtml">INÍCIO</a></li>
+				<li><a href="#">POSTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/posto.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web/restricted/listaPostos.xhtml">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">PRODUTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/produto.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web/restricted/listaProdutos.xhtml">LISTAR</a></li>
+					</ul></li>
+				<li><a href="#">AGENDAMENTO</a>
+					<ul class="sub-menu">
+						<li><a href="/PIJava2Web/restricted/agenda.xhtml">NOVO</a></li>
+						<li><a href="/PIJava2Web/restricted/listaAgenda.xhtml">LISTAR</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<img src="../resources/img/logo.png" title="E-LIXO" border="none" />
+		<h:form>
+			<h:commandButton value="Sair" actionListener="#{loginBean.sair}"
+				class="botaoSair" />
+		</h:form>
+		<div class="titulo">
+			<p>Sistema de gerenciamento de lixos eletrônicos</p>
+		</div>
+
+
+
+	</div>
+#{indexBean.message}
+		<div id="conteudo">
+
+
+
+		<h:panelGrid columns="1" style="width:100%">
+			<p:chart type="bar" model="#{chartView.animatedModel1}"
+				style="width:100%;" />
+		</h:panelGrid>
+
+
+
+		<h1>Trabalho de PI de Java II, GADS 2014.2TN do Isntituto InfNet.</h1>
+
+		<div class="three-column">
+
+			<span>Membros do grupo</span>
+
+			<p>Waldivino Frederico Marques</p>
+
+			<p>Rafael Elias</p>
+
+			<p>Pablo Albert</p>
+
+			<p>Hugo Portela</p>
+
+			<p>Fabricio Tarden</p>
+
+		</div>
+
+	</div>
+	<div id="rodape">
+		<address>©Todos os direitos reservados - Trabalho PI turma
+			GADS-20142T.N - Intituto InfNet</address>
+	</div>
+</h:body>
+</html>

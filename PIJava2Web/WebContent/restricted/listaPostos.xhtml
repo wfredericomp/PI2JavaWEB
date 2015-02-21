@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<link rel="stylesheet" type="text/css" href="css/estilo.css"></link>
+</head>
+<h:body>
+	<ui:composition template="_template.xhtml">
+
+		<ui:define name="titulo">
+			<p>Lista de Postos de coletas de lixos eletrônicos</p>
+		</ui:define>
+		<ui:define name="conteudo">
+			<f:view>
+				<h:form>
+					<h:dataTable value="#{postoBean.postos}" var="posto"
+						styleClass="tabela" headerClass="cabecalhos"
+						columnClasses="primeiro, ultimo, primeiro, ultimo, primeiro, ultimo">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Código" />
+							</f:facet>
+							<h:outputText value="#{posto.codigo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nome" />
+							</f:facet>
+							<h:outputText value="#{posto.nome}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Estado" />
+							</f:facet>
+							<h:outputText value="#{posto.estado}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cidade" />
+							</f:facet>
+							<h:outputText value="#{posto.cidade}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Número" />
+							</f:facet>
+							<h:outputText value="#{posto.numero}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Complemento" />
+							</f:facet>
+							<h:outputText value="#{posto.complemento}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Atualizar" />
+							</f:facet>
+							<h:commandButton value="atualizar" class="botaoLista"
+								actionListener="#{postoBean.atulizarPosto(posto)}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Remover" />
+							</f:facet>
+							<h:commandButton value="remover" class="botaoLista"
+								actionListener="#{postoBean.removerPosto(posto)}" />
+						</h:column>
+
+					</h:dataTable>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
